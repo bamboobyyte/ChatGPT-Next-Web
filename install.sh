@@ -11,8 +11,6 @@ curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
 
 bash nodesource_setup.sh
 
-read -p "Press enter to continue"
-
 # install nodejs
 apt install -y nodejs yarn
 
@@ -26,6 +24,7 @@ echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> .env.local
 echo "CODE=$CODE" >> .env.local
 
 # making chat-next-web service
+rm -rf /etc/systemd/system/chat-next-web.service
 echo "[Unit]
 Description=ChatGPT Next Web
 
