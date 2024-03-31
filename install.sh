@@ -19,6 +19,7 @@ read -p "Enter OPENAI_API_KEY: " OPENAI_API_KEY
 read -p "Enter CODE: " CODE
 read -p "Enter PORT: " PORT
 
+rm -rf .env.local
 touch .env.local
 echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> .env.local
 echo "CODE=$CODE" >> .env.local
