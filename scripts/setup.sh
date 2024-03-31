@@ -66,5 +66,3 @@ read -p "Enter PORT: " PORT
 # Build and run the project using the environment variables
 OPENAI_API_KEY=$OPENAI_API_KEY CODE=$CODE PORT=$PORT yarn build
 OPENAI_API_KEY=$OPENAI_API_KEY CODE=$CODE PORT=$PORT yarn start
-
-#
