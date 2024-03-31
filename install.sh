@@ -8,7 +8,12 @@ fi
 
 # download the nodejs source config script
 curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
+
+pwd
+
 ./nodesource_setup.sh
+
+read -p "Press enter to continue"
 
 # install nodejs
 apt install -y nodejs yarn
@@ -34,3 +39,6 @@ Restart=on-abnormal
 
 [Install]
 WantedBy=multi-user.target" >> /etc/systemd/system/chat-next-web.service
+
+systemctl daemon-reload
+systemctl 
