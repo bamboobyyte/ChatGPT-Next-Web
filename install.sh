@@ -24,6 +24,10 @@ touch .env.local
 echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> .env.local
 echo "CODE=$CODE" >> .env.local
 
+# install packages
+yarn install
+yarn build
+
 # making chat-next-web service
 rm -rf /etc/systemd/system/chat-next-web.service
 echo "[Unit]
@@ -39,4 +43,4 @@ Restart=on-abnormal
 WantedBy=multi-user.target" >> /etc/systemd/system/chat-next-web.service
 
 systemctl daemon-reload
-systemctl 
+# systemctl 
