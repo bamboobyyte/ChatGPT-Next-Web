@@ -8,11 +8,15 @@ fi
 
 # download the nodejs source config script
 curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
-
 bash nodesource_setup.sh
 
+# config the source of yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+
 # install nodejs
-apt install -y nodejs yarn npm
+apt install -y nodejs yarn
 
 # get env variables
 read -p "Enter OPENAI_API_KEY: " OPENAI_API_KEY
@@ -35,7 +39,7 @@ Description=ChatGPT Next Web
 
 [Service]
 Environment=PORT=$PORT
-ExecStart=/usr/local/bin/yarn start
+ExecStart=/usr/bin/yarn start
 WorkingDirectory=/home/Panda/ChatGPT-Next-Web/
 Restart=on-abnormal
 
@@ -43,4 +47,3 @@ Restart=on-abnormal
 WantedBy=multi-user.target" >> /etc/systemd/system/chat-next-web.service
 
 systemctl daemon-reload
-# systemctl 
