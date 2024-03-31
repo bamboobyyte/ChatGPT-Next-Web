@@ -12,7 +12,7 @@ curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
 bash nodesource_setup.sh
 
 # install nodejs
-apt install -y nodejs yarn
+apt install -y nodejs yarn npm
 
 # get env variables
 read -p "Enter OPENAI_API_KEY: " OPENAI_API_KEY
